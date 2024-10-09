@@ -1,8 +1,8 @@
 <script>
-  import Cross from "../assets/circle-x.svg";
-  import Add from "../assets/circle-plus.svg";
-  import PlusIcon from "../assets/plus.svg";
-  import MinusIcon from "../assets/minus.svg";
+  import Cross from "/assets/circle-x.png";
+  import Add from "/assets/circle-plus.svg";
+  import PlusIcon from "/assets/plus.svg";
+  import MinusIcon from "/assets/minus.svg";
   import { GetLatestIdOfItem } from "./Functions/FetchLatestId.svelte";
   import { GetLatestIdOfCategory } from "./Functions/FetchLatestCategoryId.svelte";
 
@@ -13,7 +13,6 @@
   let indexOf;
   let openAccordionIndex = null;
 
-  
   $: budget = budgetList[budgetToDisplay];
   $: budget.title = titleForBudget;
   $: errorResponse = null;
@@ -28,7 +27,7 @@
 
   $: totalAmountExpense = budget.expenses.reduce(
     (total, expense) => total + expense.totalAmount,
-    0
+    0,
   );
 
   const AddCategory = () => {
@@ -44,7 +43,7 @@
 
   const DeleteCategory = (categoryId) => {
     budget.expenses = budget.expenses.filter(
-      (expense) => expense.id !== categoryId
+      (expense) => expense.id !== categoryId,
     );
     budget = { ...budget };
   };
@@ -72,7 +71,7 @@
 
   const DeleteItem = (categoryIndex, itemId) => {
     var itemIndex = budget.expenses[categoryIndex].items.findIndex(
-      (item) => item.id == itemId
+      (item) => item.id == itemId,
     );
     if (itemIndex !== -1) {
       budget.expenses[categoryIndex].items.splice(itemIndex, 1);
