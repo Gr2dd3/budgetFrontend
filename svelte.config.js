@@ -1,16 +1,15 @@
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
-import adapter from '@sveltejs/adapter-static';
+import adapter from '@sveltejs/adapter-static';  // Du kan byta adapter om du vill ha något annat än statisk byggnation
 
-const dev = process.argv.includes('dev');
-
-const config = {
+export default {
   kit: {
-    appDir: 'app',
+    // Om du använder en statisk server eller annan typ av hosting kan du ställa in `adapter-static`
     adapter: adapter(),
-    paths: {
-      base: dev ? '' : process.env.BASE_PATH,
+    target: '#app',  // Här matchar du id:n i din index.html där appen ska monteras (t.ex. <div id="app"></div>)
+    vite: {
+      // Vite-specifik konfiguration, om nödvändigt
+      preprocess: vitePreprocess(),
     }
-  },
-  preprocess: vitePreprocess(),
-}
-export default config;
+  }
+};
+
