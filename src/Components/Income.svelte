@@ -1,8 +1,8 @@
 <script>
-  import Cross from "../assets/circle-x.svg";
-  import Add from "../assets/circle-plus.svg";
-  import PlusIcon from "../assets/plus.svg";
-  import MinusIcon from "../assets/minus.svg";
+  import Cross from "/assets/circle-x.svg";
+  import Add from "/assets/circle-plus.svg";
+  import PlusIcon from "/assets/plus.svg";
+  import MinusIcon from "/assets/minus.svg";
   import { GetLatestIdOfItem } from "./Functions/FetchLatestId.svelte";
 
   let currency = "SEK";
