@@ -13,6 +13,7 @@
   let indexOf;
   let openAccordionIndex = null;
 
+  
   $: budget = budgetList[budgetToDisplay];
   $: budget.title = titleForBudget;
   $: errorResponse = null;
