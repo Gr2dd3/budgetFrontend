@@ -1,8 +1,4 @@
 <script>
-  import Cross from "/assets/circle-x.svg";
-  import Add from "/assets/circle-plus.svg";
-  import PlusIcon from "/assets/plus.svg";
-  import MinusIcon from "/assets/minus.svg";
   import { GetLatestIdOfItem } from "./Functions/FetchLatestId.svelte";
 
   let currency = "SEK";
@@ -78,9 +74,9 @@
   </span>
 
   {#if openAccordionIndex === index}
-    <img src={MinusIcon} alt="Collapse" class="accordion-icon" />
+    <img src="/assets/minus.svg" alt="Collapse" class="accordion-icon" />
   {:else}
-    <img src={PlusIcon} alt="Expand" class="accordion-icon" />
+    <img src="/assets/plus.svg" alt="Expand" class="accordion-icon" />
   {/if}
 </div>
 
@@ -92,7 +88,11 @@
           class="icon-button"
           on:click={() => DeleteItem(indexToDelete, item.id)}
         >
-          <img src={Cross} class="item-icons" alt="delete itemfield" />
+          <img
+            src="/assets/circle-x.svg"
+            class="item-icons"
+            alt="delete itemfield"
+          />
         </button>
         <input class="accordion-item-name" type="text" bind:value={item.name} />
         <input
@@ -106,7 +106,7 @@
     {/each}
     <div class="accordion-content-first">
       <button class="icon-button" on:click={AddItem()}>
-        <img src={Add} class="item-icons" alt="Add item" />
+        <img src="/assets/circle-plus.svg" class="item-icons" alt="Add item" />
         <p class="small-p">Lägg till nytt fält</p>
       </button>
     </div>
