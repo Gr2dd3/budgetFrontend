@@ -2,6 +2,7 @@
   import { onMount } from "svelte";
   export let budgetList;
   //const tresAzureURL = "https://tres-budget.azurewebsites.net/api/Budget";
+  // const baseAdressLocal = "https://localhost:7083";
   const baseAdress =
     "https://myapi-bubycqeyg2awapd6.northeurope-01.azurewebsites.net";
   const url = "/api/Budget";

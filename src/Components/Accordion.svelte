@@ -134,7 +134,7 @@
             on:click={() => DeleteItem(index, item.id)}
           >
             <img
-              src="/assets/circle-x.png"
+              src="/assets/circle-x.svg"
               class="item-icons"
               alt="delete itemfield"
             />
