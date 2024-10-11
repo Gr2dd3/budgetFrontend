@@ -14,5 +14,5 @@ export default defineConfig({
       }
     }
   },
-  base: './', // Gör länkarna relativa så att de fungerar i alla miljöer
+  base: '/', // Gör länkarna relativa så att de fungerar i alla miljöer
 });
