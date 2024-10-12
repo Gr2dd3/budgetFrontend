@@ -15,4 +15,7 @@ export default defineConfig({
     }
   },
   base: '/', // Gör länkarna relativa så att de fungerar i alla miljöer
+  server: {
+    port: 8080, // Ställer in Vite-servern till att köra på port 8080
+  }
 });
