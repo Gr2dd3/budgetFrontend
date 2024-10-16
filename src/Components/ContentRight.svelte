@@ -1,11 +1,11 @@
 <script lang="ts">
-  import { GetLatestIdOfItem } from "./Functions/FetchLatestId.svelte";
+  //import { GetLatestIdOfItem } from "./Functions/FetchLatestId.svelte";
   import Chart from "./Chart.svelte";
   export let budget;
-  let indexOf;
+  //let indexOf;
 
   $: errorResponse = null;
-  let generatedPdf;
+  //let generatedPdf;
 
   const generatePdf = async () => {
     try {
@@ -17,7 +17,7 @@
             "Content-Type": "application/json",
           },
           body: JSON.stringify(budget),
-        }
+        },
       );
 
       if (!response.ok) {
@@ -54,7 +54,7 @@
 
   $: totalAmountExpense = budget.expenses.reduce(
     (total, expense) => total + expense.totalAmount,
-    0
+    0,
   );
 
   let budgetMessage = "";
@@ -64,7 +64,7 @@
     const totalIncome = parseFloat(budget.income.totalAmount || 0);
     const totalExpenses = budget.expenses.reduce(
       (total, expense) => total + parseFloat(expense.totalAmount || 0),
-      0
+      0,
     );
 
     if (totalIncome === 0 && totalExpenses === 0) {

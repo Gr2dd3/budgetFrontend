@@ -3,14 +3,19 @@
   let currency = "SEK";
   let itemToAdd = { name: "New Item", totalAmount: 0 };
 
-  let localBudget = budget;
+  let localBudget = structuredClone(budget);
 
   const AddItem = (category) => () => {
     console.log(category);
     var indexOf = localBudget.expenses.findIndex((cat) => cat.name == category);
-    console.log(indexOf);
-    localBudget.expenses[indexOf].items.push(itemToAdd);
-    console.log(budget);
+
+    if (indexOf !== -1) {
+      localBudget.expenses[indexOf].items.push({ ...itemToAdd });
+      localBudget = { ...localBudget }; // Tvinga omrendering genom att skapa en ny referens
+      console.log("Updated budget:", localBudget);
+    } else {
+      console.error("Category not found:", category);
+    }
   };
 </script>
 
@@ -29,14 +34,14 @@
               />
               <input
                 class="expence-items--amount"
-                type="digit"
+                type="number"
                 min="0"
                 bind:value={item.amount}
               />
               <div class="expence--currency">{currency}</div>
             </div>
           {/each}
-          <button on:click={AddItem(expense.name)}>Add item</button>
+          <button on:click={() => AddItem(expense.name)()}>Add item</button>
         </div>
       </div>
     {/each}

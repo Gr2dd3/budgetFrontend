@@ -11,7 +11,11 @@
   console.log("budget from income" + budgetList);
   console.log("budgetToDisplay from income " + budgetToDisplay);
 
-  $: budget = budgetList[budgetToDisplay];
+  $: if (budgetList && budgetList[budgetToDisplay]) {
+    budget = budgetList[budgetToDisplay];
+  } else {
+    console.error("Invalid budget or budgetToDisplay");
+  }
 
   function toggleAccordion(index) {
     if (openAccordionIndex === index) {
@@ -21,13 +25,14 @@
     }
   }
 
-  $: {
+  $: if (budget && budget.income && Array.isArray(budget.income.items)) {
     totalIncome = 0;
     budget.income.items.forEach((item) => {
       totalIncome += item.amount;
-      console.log("totalincome from income component: " + totalIncome);
     });
     budget.income.totalAmount = totalIncome;
+  } else {
+    console.error("budget or budget.income is undefined");
   }
 
   const DeleteItem = (incomeItemIndex, itemId) => {

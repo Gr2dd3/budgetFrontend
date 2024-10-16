@@ -64,9 +64,6 @@
             <button class="numberbtn" on:click={() => (budgetToDisplay = 2)}
               >3</button
             >
-            <button class="numberbtn" on:click={() => (budgetToDisplay = 3)}
-              >Tom</button
-            >
           </div>
         </div>
         <h1 class="content-display">Utgifter</h1>
